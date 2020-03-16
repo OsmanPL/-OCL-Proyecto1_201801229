@@ -140,6 +140,13 @@ namespace _OCL_Proyecto1_201801229
                             lexema += c;
                             estado = 7;
                         }
+                        else
+                        {
+                            lexema += c;
+                            Error("Caracter Desconocido", lexema, fila, columna);
+                            lexema = "";
+                            estado = 0;
+                        }
                         break;
                     case 1:
                         if (Char.IsLetterOrDigit(c))
@@ -238,6 +245,7 @@ namespace _OCL_Proyecto1_201801229
                         {
                             lexema += c;
                             Error("Caracter Desconocido", lexema, fila, columna);
+                            lexema = "";
                             estado = 0;
                         }
                         break;
@@ -265,6 +273,7 @@ namespace _OCL_Proyecto1_201801229
                         {
                             lexema += c;
                             Error("Caracter Desconocido", lexema, fila, columna);
+                            lexema = "";
                             estado = 0;
                         }
                         break;
@@ -279,6 +288,22 @@ namespace _OCL_Proyecto1_201801229
                         else
                         {
                             lexema += c;
+                        }
+                        break;
+                    case 9:
+                        if (c == '>')
+                        {
+                            lexema += c;
+                            Token(lexema, "Cerrar Comentario Multilinea", fila, columna, i - lexema.Length);
+                            lexema = "";
+                            estado = 0;
+                        }
+                        else
+                        {
+                            lexema += c;
+                            Error("Caracter Desconocido", lexema, fila, columna);
+                            lexema = "";
+                            estado = 0;
                         }
                         break;
                 }
