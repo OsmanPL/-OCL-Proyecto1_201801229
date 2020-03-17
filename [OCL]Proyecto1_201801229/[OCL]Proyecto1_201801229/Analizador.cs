@@ -308,6 +308,15 @@ namespace _OCL_Proyecto1_201801229
                         break;
                 }
             }
+            if (listaErrores.Count==0)
+            {
+                Generar_Thompson gt = new Generar_Thompson();
+                gt.separarNodos(listaExpresiones);
+            }
+            else
+            {
+                MessageBox.Show("Existen Errores Lexicos");
+            }
         }
      
         public bool palabraReservada(String palabra)

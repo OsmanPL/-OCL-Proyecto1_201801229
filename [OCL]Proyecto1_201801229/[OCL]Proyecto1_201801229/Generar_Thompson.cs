@@ -100,6 +100,9 @@ namespace _OCL_Proyecto1_201801229
             }
             j = 0;
             generarAFN(nodos.ElementAt(j), 0);
+            grafica += "}";
+            Graficador gr = new Graficador();
+            gr.graficar(grafica);
         }
 
         public void generarAFN(Object nodo, int n)
@@ -112,11 +115,13 @@ namespace _OCL_Proyecto1_201801229
             }
             else if (nodo.ToString() == ".")
             {
-                generarOr(j);
+                grafica += "node" + n + "; \n";
+                k = n;
+                generarConcatenacion(n);
             }
             else if (nodo.ToString() == "+")
             {
-                generarOr(j);
+                generarOr(n);
             }
             else if (nodo.ToString() == "*")
             {
@@ -138,34 +143,34 @@ namespace _OCL_Proyecto1_201801229
             if (nodo.ToString() == "|")
             {
                 generarAFN(nodo, m);
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
                 generarAFN(nodo, m);
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
                 generarAFN(nodo, m);
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
                 generarAFN(nodo, m);
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
                 generarAFN(nodo, m);
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else
             {
                 grafica += "node" + m + "; \n";
-                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n]";
                 grafica += "node" + l + "; \n";
-                grafica += "node" + m + " -> node" + l + " [label=\u0022 "+nodo.ToString()+"\u0022;\n";
+                grafica += "node" + m + " -> node" + l + " [label=\u0022 "+nodo.ToString()+"\u0022];\n";
                 k = l;
             }
 
@@ -178,38 +183,51 @@ namespace _OCL_Proyecto1_201801229
             if (nodo.ToString() == "|")
             {
                 generarAFN(nodo, d);
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
                 generarAFN(nodo, d);
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
                 generarAFN(nodo, d);
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
                 generarAFN(nodo, d);
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
                 generarAFN(nodo, d);
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else
             {
                 grafica += "node" + d + "; \n";
-                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022;\n";
+                grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
                 grafica += "node" + r + "; \n";
-                grafica += "node" + d + " -> node" + r + " [label=\u0022 " + nodo.ToString() + "\u0022;\n";
+                grafica += "node" + d + " -> node" + r + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
                 k = r;
             }
 
+            int u = k + 1;
+            grafica += "node" + u + "; \n";
+            grafica += "node" + l + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
+            grafica += "node" + r + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
 
+        }
+
+        public void generarConcatenacion(int n)
+        {
+
+        }
+
+        public void escribirArchivoDot()
+        {
 
         }
     }

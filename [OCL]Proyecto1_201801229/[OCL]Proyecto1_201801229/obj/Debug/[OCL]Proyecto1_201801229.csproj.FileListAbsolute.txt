@@ -7,3 +7,12 @@ C:\Users\l4kz4\Documents\Compi1\[OCL]Proyecto1_201801229\[OCL]Proyecto1_20180122
 C:\Users\l4kz4\Documents\Compi1\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.csproj.GenerateResource.cache
 C:\Users\l4kz4\Documents\Compi1\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.exe
 C:\Users\l4kz4\Documents\Compi1\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.pdb
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\[OCL]Proyecto1_201801229.exe.config
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\[OCL]Proyecto1_201801229.exe
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\[OCL]Proyecto1_201801229.pdb
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.csprojAssemblyReference.cache
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\_OCL_Proyecto1_201801229.Form1.resources
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\_OCL_Proyecto1_201801229.Properties.Resources.resources
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.csproj.GenerateResource.cache
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.exe
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.pdb

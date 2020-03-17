@@ -57,6 +57,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar_Thompson.cs" />
+    <Compile Include="Graficador.cs" />
     <Compile Include="Lexema.cs" />
     <Compile Include="NodoExpresion.cs" />
     <Compile Include="Pestaña.cs" />
