@@ -115,7 +115,6 @@ namespace _OCL_Proyecto1_201801229
             }
             else if (nodo.ToString() == ".")
             {
-                grafica += "node" + n + "; \n";
                 k = n;
                 generarConcatenacion(n);
             }
@@ -136,6 +135,7 @@ namespace _OCL_Proyecto1_201801229
         { 
             //Lado Izquierdo
             j++;
+
             int m = n + 1;
             int l = m + 1;
             Object nodo = nodos.ElementAt(j);
@@ -173,7 +173,7 @@ namespace _OCL_Proyecto1_201801229
                 grafica += "node" + m + " -> node" + l + " [label=\u0022 "+nodo.ToString()+"\u0022];\n";
                 k = l;
             }
-
+            l = k;
             //Lado Derecho
             int d = k + 1;
             int r = d + 1;
@@ -218,12 +218,83 @@ namespace _OCL_Proyecto1_201801229
             grafica += "node" + u + "; \n";
             grafica += "node" + l + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
             grafica += "node" + r + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
-
+            k = u;
         }
 
         public void generarConcatenacion(int n)
         {
+            //Lado Izquierdo
+            j++;
+            int m = n;
+            int l = m + 1;
+            Object nodo = nodos.ElementAt(j);
+            Object transicion = new Object();
 
+            if (nodo.ToString() == "|")
+            {
+                generarAFN(nodo, m);
+            }
+            else if (nodo.ToString() == ".")
+            {
+                generarAFN(nodo, m);
+            }
+            else if (nodo.ToString() == "+")
+            {
+                generarAFN(nodo, m);
+            }
+            else if (nodo.ToString() == "*")
+            {
+                generarAFN(nodo, m);
+            }
+            else if (nodo.ToString() == "?")
+            {
+                generarAFN(nodo, m);
+            }
+            else
+            {
+                m = k;
+                l = k + 1;
+                grafica += "node" + m + "; \n";
+                grafica += "node" + l + "; \n";
+                grafica += "node" + m + " -> node" + l + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
+                k = l;
+            }
+
+
+            //Lado Derecho
+            j++;
+            int d = k;
+            int r = d + 1;
+            nodo = nodos.ElementAt(j);
+
+            if (nodo.ToString() == "|")
+            {
+                generarAFN(nodo, d);
+            }
+            else if (nodo.ToString() == ".")
+            {
+                generarAFN(nodo, d);
+            }
+            else if (nodo.ToString() == "+")
+            {
+                generarAFN(nodo, d);
+            }
+            else if (nodo.ToString() == "*")
+            {
+                generarAFN(nodo, d);
+            }
+            else if (nodo.ToString() == "?")
+            {
+                generarAFN(nodo, d);
+            }
+            else
+            {
+                d = k;
+                r = k + 1;
+                grafica += "node" + r + "; \n";
+                grafica += "node" + d + " -> node" + r + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
+                k = r;
+            }
         }
 
         public void escribirArchivoDot()
