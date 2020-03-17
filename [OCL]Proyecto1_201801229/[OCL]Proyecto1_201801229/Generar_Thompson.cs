@@ -30,7 +30,8 @@ namespace _OCL_Proyecto1_201801229
                 string lexema = "";
                 Char c;
                 grafica += "digraph "+ nombreGrafica+" { \n";
-                grafica += "node [shape = circle, height=.1] \n";
+                grafica += "rankdir = \u0022LR\u0022; \n";
+                grafica += "node [shape = circle, height=.1]; \n";
                 expresion = expresion + " ";
                 for (int i = 0; i < expresion.Length; i++)
                 {
@@ -41,27 +42,22 @@ namespace _OCL_Proyecto1_201801229
                             if (c == '|')
                             {
                                 nodos.Add(c);
-                                j++;
                             }
                             else if (c == '.')
                             {
                                 nodos.Add(c);
-                                j++;
                             }
                             else if (c == '+')
                             {
                                 nodos.Add(c);
-                                j++;
                             }
                             else if (c == '*')
                             {
                                 nodos.Add(c);
-                                j++;
                             }
                             else if (c == '?')
                             {
                                 nodos.Add(c);
-                                j++;
                             }
                             else if (c == '{')
                             {
@@ -115,6 +111,7 @@ namespace _OCL_Proyecto1_201801229
 
         public void generarAFN(Object nodo, int n)
         {
+
             if (nodo.ToString() == "|")
             {
                 grafica += "node" + n + "; \n";
@@ -128,7 +125,9 @@ namespace _OCL_Proyecto1_201801229
             }
             else if (nodo.ToString() == "+")
             {
-                generarOr(n);
+                grafica += "node" + n + "; \n";
+                k = n;
+                generarCerrduraPositiva(n);
             }
             else if (nodo.ToString() == "*")
             {
@@ -414,6 +413,89 @@ namespace _OCL_Proyecto1_201801229
             grafica += "node" + p + "; \n";
             grafica += "node" + l + " -> node" + p + " [label=\u0022Ɛ\u0022;\n]";
             grafica += "node" + n + " -> node" + p + " [label=\u0022Ɛ\u0022;\n]";
+            k = p;
+        }
+        public void generarCerrduraPositiva(int n)
+        {
+            
+            j++;
+            int t = j;
+            int m = k + 1;
+            Object nodo = nodos.ElementAt(j);
+
+            if (nodo.ToString() == "|")
+            {
+                generarAFN(nodo, m);
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == ".")
+            {
+                generarAFN(nodo, m);
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "+")
+            {
+                generarAFN(nodo, m);
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "*")
+            {
+                generarAFN(nodo, m);
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "?")
+            {
+                generarAFN(nodo, m);
+                grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else
+            {
+                grafica += "node" + n + " -> node" + m + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
+                k = m;
+            }
+            m = k;
+            int l = k + 1;
+            int r = l + 1;
+            j = t;
+            if (nodo.ToString() == "|")
+            {
+                generarAFN(nodo, l);
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == ".")
+            {
+                generarAFN(nodo, l);
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "+")
+            {
+                generarAFN(nodo, l);
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "*")
+            {
+                generarAFN(nodo, l);
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else if (nodo.ToString() == "?")
+            {
+                generarAFN(nodo, l);
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
+            }
+            else
+            {
+                grafica += "node" + l + "; \n";
+                grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022;\n]";
+                grafica += "node" + r + "; \n";
+                grafica += "node" + l + " -> node" + r + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
+                k = r;
+            }
+            r = k;
+            int p = k + 1;
+            grafica += "node" + r + " -> node" + l + " [label=\u0022Ɛ\u0022;\n]";
+            grafica += "node" + p + "; \n";
+            grafica += "node" + r + " -> node" + p + " [label=\u0022Ɛ\u0022;\n]";
+            grafica += "node" + m + " -> node" + p + " [label=\u0022Ɛ\u0022;\n]";
             k = p;
         }
 
