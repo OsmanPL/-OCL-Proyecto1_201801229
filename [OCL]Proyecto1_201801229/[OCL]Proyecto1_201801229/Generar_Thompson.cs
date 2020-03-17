@@ -97,7 +97,12 @@ namespace _OCL_Proyecto1_201801229
                     }
                 }
                 j = 0;
-                generarAFN(nodos.ElementAt(j), 0);
+                Object nodo = nodos.ElementAt(j);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, 0,nuevo);
+                raiz = nuevo;
                 grafica += "}";
                 Graficador gr = new Graficador();
                 gr.graficar(grafica, nombreGrafica);
@@ -109,14 +114,14 @@ namespace _OCL_Proyecto1_201801229
             }
         }
 
-        public void generarAFN(Object nodo, int n)
+        public void generarAFN(Object nodo, int n, NodoExpresion nodoexp)
         {
 
             if (nodo.ToString() == "|")
             {
                 grafica += "node" + n + "; \n";
                 k = n;
-                generarOr(n);
+                generarOr(n, nodoexp);
             }
             else if (nodo.ToString() == ".")
             {
@@ -142,7 +147,7 @@ namespace _OCL_Proyecto1_201801229
                 generarInterrogacion(n);
             }
         }
-        public void generarOr(int n)
+        public void generarOr(int n, NodoExpresion nodoexp)
         { 
             //Lado Izquierdo
             j++;
@@ -153,35 +158,65 @@ namespace _OCL_Proyecto1_201801229
             
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
             }
             else
             {
                 grafica += "node" + m + "; \n";
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = m;
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n]";
+                nodoexp.TransicionIzquierda = "Ɛ";
+                nodoexp.Izquierda = nuevo;
                 grafica += "node" + l + "; \n";
+                NodoExpresion nuevo2 = new NodoExpresion();
+                nuevo2.Id = l;
                 grafica += "node" + m + " -> node" + l + " [label=\u0022 "+nodo.ToString()+"\u0022];\n";
+                nodoexp.TransicionIzquierda = nodo.ToString();
+                nuevo.Izquierda = nuevo2;
                 k = l;
             }
             l = k;
@@ -193,27 +228,43 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
             }
             else
@@ -243,23 +294,38 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else
             {
@@ -280,23 +346,38 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, d);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
             }
             else
             {
@@ -318,27 +399,42 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else
@@ -376,27 +472,42 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else
@@ -425,27 +536,42 @@ namespace _OCL_Proyecto1_201801229
 
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, m);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
             }
             else
@@ -459,27 +585,42 @@ namespace _OCL_Proyecto1_201801229
             j = t;
             if (nodo.ToString() == "|")
             {
-                generarAFN(nodo, l);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, l, nuevo);
                 grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == ".")
             {
-                generarAFN(nodo, l);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, l, nuevo);
                 grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "+")
             {
-                generarAFN(nodo, l);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, l, nuevo);
                 grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "*")
             {
-                generarAFN(nodo, l);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, l, nuevo);
                 grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
             }
             else if (nodo.ToString() == "?")
             {
-                generarAFN(nodo, l);
+                NodoExpresion nuevo = new NodoExpresion();
+                nuevo.Id = j;
+                
+                generarAFN(nodo, l, nuevo);
                 grafica += "node" + m + " -> node" + l + " [label=\u0022Ɛ\u0022];\n";
             }
             else

@@ -51,7 +51,7 @@
             this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1090, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,21 +68,21 @@
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // generarToolStripMenuItem
             // 
             this.generarToolStripMenuItem.Name = "generarToolStripMenuItem";
-            this.generarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generarToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.generarToolStripMenuItem.Text = "Agregar Pestaña";
             this.generarToolStripMenuItem.Click += new System.EventHandler(this.generarToolStripMenuItem_Click);
             // 
@@ -100,20 +100,20 @@
             // iniciarAnalisisLexicoToolStripMenuItem
             // 
             this.iniciarAnalisisLexicoToolStripMenuItem.Name = "iniciarAnalisisLexicoToolStripMenuItem";
-            this.iniciarAnalisisLexicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iniciarAnalisisLexicoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.iniciarAnalisisLexicoToolStripMenuItem.Text = "Cargar Thompson";
             this.iniciarAnalisisLexicoToolStripMenuItem.Click += new System.EventHandler(this.iniciarAnalisisLexicoToolStripMenuItem_Click);
             // 
             // guardarTokensToolStripMenuItem
             // 
             this.guardarTokensToolStripMenuItem.Name = "guardarTokensToolStripMenuItem";
-            this.guardarTokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarTokensToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.guardarTokensToolStripMenuItem.Text = "Guardar Tokens";
             // 
             // guardarErroresToolStripMenuItem
             // 
             this.guardarErroresToolStripMenuItem.Name = "guardarErroresToolStripMenuItem";
-            this.guardarErroresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarErroresToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.guardarErroresToolStripMenuItem.Text = "Guardar Errores";
             // 
             // reportesToolStripMenuItem
@@ -127,7 +127,7 @@
             // errorLexicoToolStripMenuItem
             // 
             this.errorLexicoToolStripMenuItem.Name = "errorLexicoToolStripMenuItem";
-            this.errorLexicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.errorLexicoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.errorLexicoToolStripMenuItem.Text = "Error Lexico";
             // 
             // tabControl1
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 460);
+            this.ClientSize = new System.Drawing.Size(1090, 460);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
