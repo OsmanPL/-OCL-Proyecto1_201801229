@@ -27,11 +27,11 @@ namespace _OCL_Proyecto1_201801229
 
         }
 
-        public void graficar(String texto)
+        public void graficar(String texto, String nombre)
         {
             grafica = new StringBuilder();
-            String rdot = ruta + "\\imagen.dot";
-            String rpng = ruta + "\\imagen.png ";
+            String rdot = ruta + "\\"+nombre+".dot";
+            String rpng = ruta + "\\" + nombre + ".png ";
             grafica.Append(texto);
             this.generarDot(rdot, rpng);
         }
