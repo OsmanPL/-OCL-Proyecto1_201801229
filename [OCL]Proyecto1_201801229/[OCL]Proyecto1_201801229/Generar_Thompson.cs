@@ -14,6 +14,7 @@ namespace _OCL_Proyecto1_201801229
         List<Object> nodos = new List<object>();
         int j = 0;
         int k = 0;
+        NodoExpresion ultimo = new NodoExpresion();
         String grafica = "";
         public Generar_Thompson()
         {
@@ -121,29 +122,34 @@ namespace _OCL_Proyecto1_201801229
             {
                 grafica += "node" + n + "; \n";
                 k = n;
+                ultimo = nodoexp;
                 generarOr(n, nodoexp);
             }
             else if (nodo.ToString() == ".")
             {
                 k = n;
+                ultimo = nodoexp;
                 generarConcatenacion(n);
             }
             else if (nodo.ToString() == "+")
             {
                 grafica += "node" + n + "; \n";
                 k = n;
+                ultimo = nodoexp;
                 generarCerrduraPositiva(n);
             }
             else if (nodo.ToString() == "*")
             {
                 grafica += "node" + n + "; \n";
                 k = n;
+                ultimo = nodoexp;
                 generarCerraduaKleene(n);
             }
             else if (nodo.ToString() == "?")
             {
                 grafica += "node" + n + "; \n";
                 k = n;
+                ultimo = nodoexp;
                 generarInterrogacion(n);
             }
         }
@@ -155,132 +161,156 @@ namespace _OCL_Proyecto1_201801229
             int m = n + 1;
             int l = m + 1;
             Object nodo = nodos.ElementAt(j);
-            
+
+            NodoExpresion nuevo = new NodoExpresion();
+            NodoExpresion nuevo2 = new NodoExpresion();
             if (nodo.ToString() == "|")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nuevo.Id = m;
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == ".")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nuevo.Id = m;
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "+")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nuevo.Id = m;
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "*")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nuevo.Id = m;
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
             }
             else if (nodo.ToString() == "?")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022];\n";
+                nuevo.Id = m;
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
             }
             else
             {
                 grafica += "node" + m + "; \n";
-                NodoExpresion nuevo = new NodoExpresion();
                 nuevo.Id = m;
                 grafica += "node" + n + " -> node" + m + " [label=\u0022Ɛ\u0022;\n]";
                 nodoexp.TransicionIzquierda = "Ɛ";
                 nodoexp.Izquierda = nuevo;
                 grafica += "node" + l + "; \n";
-                NodoExpresion nuevo2 = new NodoExpresion();
                 nuevo2.Id = l;
                 grafica += "node" + m + " -> node" + l + " [label=\u0022 "+nodo.ToString()+"\u0022];\n";
-                nodoexp.TransicionIzquierda = nodo.ToString();
+                nuevo.TransicionIzquierda = nodo.ToString();
                 nuevo.Izquierda = nuevo2;
                 k = l;
+                ultimo = nuevo2;
             }
             l = k;
+            NodoExpresion izuierdo = ultimo;
             //Lado Derecho
             int d = k + 1;
             int r = d + 1;
             j++;
             nodo = nodos.ElementAt(j);
 
+            NodoExpresion nuevo3 = new NodoExpresion();
+
+            NodoExpresion nuevo4 = new NodoExpresion();
             if (nodo.ToString() == "|")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
+                
                 
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nuevo3.Id = d;
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
 
             }
             else if (nodo.ToString() == ".")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
+
+
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nuevo3.Id = d;
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
+
             }
             else if (nodo.ToString() == "+")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
+
+
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nuevo3.Id = d;
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
+
             }
             else if (nodo.ToString() == "*")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nuevo3.Id = d;
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
+
             }
             else if (nodo.ToString() == "?")
             {
-                NodoExpresion nuevo = new NodoExpresion();
-                nuevo.Id = j;
-                
                 generarAFN(nodo, m, nuevo);
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nuevo3.Id = d;
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
+
             }
             else
             {
                 grafica += "node" + d + "; \n";
+                nuevo3.Id = d;
                 grafica += "node" + n + " -> node" + d + " [label=\u0022Ɛ\u0022];\n";
+                nodoexp.TransicionDerecha = "Ɛ";
+                nodoexp.Derecha = nuevo3;
                 grafica += "node" + r + "; \n";
+                nuevo4.Id = r;
                 grafica += "node" + d + " -> node" + r + " [label=\u0022 " + nodo.ToString() + "\u0022];\n";
+                nuevo3.TransicionIzquierda = nodo.ToString();
+                nuevo3.Izquierda = nuevo4;
                 k = r;
+                ultimo = nuevo4;
+
             }
             r = k;
+            NodoExpresion derecha = ultimo;
             int u = k + 1;
+            NodoExpresion nodo5 = new NodoExpresion();
             grafica += "node" + u + "; \n";
+            nodo5.Id = u;
             grafica += "node" + l + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
+            izuierdo.TransicionIzquierda = "Ɛ";
+            izuierdo.Izquierda = nodo5;
             grafica += "node" + r + " -> node" + u + " [label=\u0022Ɛ\u0022];\n";
+            derecha.TransicionDerecha = "Ɛ";
+            derecha.Derecha = nodo5;
             k = u;
+            ultimo = nodo5;
         }
 
         public void generarConcatenacion(int n)
@@ -290,7 +320,6 @@ namespace _OCL_Proyecto1_201801229
             int m = n;
             int l = m + 1;
             Object nodo = nodos.ElementAt(j);
-            Object transicion = new Object();
 
             if (nodo.ToString() == "|")
             {
