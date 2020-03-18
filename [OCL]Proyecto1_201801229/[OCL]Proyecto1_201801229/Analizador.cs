@@ -123,6 +123,20 @@ namespace _OCL_Proyecto1_201801229
                             lexema = "";
                             estado = 0;
                         }
+                        else if (c == '{')
+                        {
+                            lexema += c;
+                            Token(lexema, "Llave Izquierda", fila, columna, i - lexema.Length);
+                            lexema = "";
+                            estado = 0;
+                        }
+                        else if (c == '}')
+                        {
+                            lexema += c;
+                            Token(lexema, "Llave Derecha", fila, columna, i - lexema.Length);
+                            lexema = "";
+                            estado = 0;
+                        }
                         else if (c == '\u0022')
                         {
                             lexema += c;
