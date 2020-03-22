@@ -8,14 +8,16 @@ namespace _OCL_Proyecto1_201801229
 {
     class Estado
     {
-        private String estadoInicial;
+        private Object estadoInicial;
         private List<Transicion> transiciones;
+        private List<int> numeros; 
 
         public Estado()
         {
 
         }
-        public string EstadoInicial { get => estadoInicial; set => estadoInicial = value; }
+        public object EstadoInicial1 { get => estadoInicial; set => estadoInicial = value; }
+        public List<int> Numeros { get => numeros; set => numeros = value; }
         internal List<Transicion> Transiciones { get => transiciones; set => transiciones = value; }
     }
 }

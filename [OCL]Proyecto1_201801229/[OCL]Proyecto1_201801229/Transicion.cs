@@ -8,15 +8,14 @@ namespace _OCL_Proyecto1_201801229
 {
     class Transicion
     {
-        private String estado;
+        private int estado;
         private String simbolo;
 
         public Transicion()
         {
 
         }
-
-        public string Estado { get => estado; set => estado = value; }
         public string Simbolo { get => simbolo; set => simbolo = value; }
+        public int Estado { get => estado; set => estado = value; }
     }
 }

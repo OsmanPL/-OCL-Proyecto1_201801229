@@ -364,27 +364,7 @@ namespace _OCL_Proyecto1_201801229
         {
 
             String Contenido_html;
-            Contenido_html = "<html>" +
-            "<body>" +
-            "<h1 align='center'>ERRORES ENCONTRADOS</h1></br>" +
-            "<table cellpadding='10' border = '1' align='center'>" +
-            "<tr>" +
-            "<td><strong>No." +
-            "</strong></td>" +
-
-            "<td><strong>Descripcion" +
-            "</strong></td>" +
-
-            "<td><strong>Error" +
-            "</strong></td>" +
-
-            "<td><strong>Fila" +
-            "</strong></td>" +
-
-            "<td><strong>Columna" +
-            "</strong></td>" +
-
-            "</tr>";
+            Contenido_html = "<ListaErrores>";
 
             String Cad_tokens = "";
             String tempo_tokens;
@@ -394,34 +374,27 @@ namespace _OCL_Proyecto1_201801229
                 Errores sen_pos = listaErrores.ElementAt(i);
 
                 tempo_tokens = "";
-                tempo_tokens = "<tr>" +
-                "<td><strong>" + (i + 1).ToString() +
-                "</strong></td>" +
+                tempo_tokens = "<Error>" +
 
-                "<td>" + sen_pos.getDescripcion() +
-                "</td>" +
+                "<Valor>" + sen_pos.getCaracter().Replace("<", "&lt;").Replace(">", "&gt;").Replace("\u0022", "&quot;") +
+                "</Valor>" +
 
-                "<td>" + sen_pos.getCaracter() +
-                "</td>" +
+                "<Fila>" + sen_pos.getFila() +
+                "</Fila>" +
 
-                "<td>" + sen_pos.getFila() +
-                "</td>" +
+                "<Columna>" + sen_pos.getColumna() +
+                "</Columna>" +
 
-                "<td>" + sen_pos.getColumna() +
-                "</td>" +
-
-                "</tr>";
+                "</Error>";
                 Cad_tokens = Cad_tokens + tempo_tokens;
 
             }
 
             Contenido_html = Contenido_html + Cad_tokens +
-            "</table>" +
-            "</body>" +
-            "</html>";
+            "</ListaErrores>";
 
-            File.WriteAllText("Reporte de Errores.html", Contenido_html);
-            System.Diagnostics.Process.Start("Reporte de Errores.html");
+            File.WriteAllText("Reporte de Errores.xml", Contenido_html);
+            System.Diagnostics.Process.Start("Reporte de Errores.xml");
 
 
         }
@@ -430,27 +403,7 @@ namespace _OCL_Proyecto1_201801229
         {
 
             String Contenido_html;
-            Contenido_html = "<html>" +
-            "<body>" +
-            "<h1 align='center'>LISTADOS DE TOKENS</h1></br>" +
-            "<table cellpadding='10' border = '1' align='center'>" +
-            "<tr>" +
-            "<td><strong>No." +
-            "</strong></td>" +
-
-            "<td><strong>Lexema" +
-            "</strong></td>" +
-
-           "<td><strong>Fila" +
-            "</strong></td>" +
-
-            "<td><strong>Columna" +
-            "</strong></td>" +
-
-             "<td><strong>Token" +
-            "</strong></td>" +
-
-            "</tr>";
+            Contenido_html = "<ListaTokens>\n"; 
 
             String Cad_tokens = "";
             String tempo_tokens;
@@ -460,33 +413,29 @@ namespace _OCL_Proyecto1_201801229
                 Token sen_pos = listaTokens.ElementAt(i);
 
                 tempo_tokens = "";
-                tempo_tokens = "<tr>" +
-                "<td><strong>" + (i + 1).ToString() +
-                "</strong></td>" +
+                tempo_tokens = "<Token>\n" +
 
-                "<td>" + sen_pos.getLexema() +
-                "</td>" +
+                "<Nombre> <label text=\u0022" + sen_pos.getIdToken().Replace("<", "&lt;").Replace(">", "&gt;").Replace("\u0022", "&quot;") + "\u0022></label>" +
+                "</Nombre>\n" +
 
-                "<td>" + sen_pos.getFila() +
-                "</td>" +
+                "<Valor>" + sen_pos.getLexema().Replace("<", "&lt;").Replace(">", "&gt;").Replace("\u0022", "&quot;") +
+                "</Valor>\n" +
 
-                "<td>" + sen_pos.getColumna() +
-                "</td>" +
+                "<Fila>" + sen_pos.getFila() +
+                "</Fila>\n" +
 
-                "<td>" + sen_pos.getIdToken() +
-                "</td>" +
+                "<Columna>" + sen_pos.getColumna() +
+                "</Columna>\n" +
 
-                "</tr>";
+                "</Token>\n";
                 Cad_tokens = Cad_tokens + tempo_tokens;
 
             }
 
             Contenido_html = Contenido_html + Cad_tokens +
-            "</table>" +
-            "</body>" +
-            "</html>";
-            File.WriteAllText("Reporte de Tokens.html", Contenido_html);
-            System.Diagnostics.Process.Start("Reporte de Tokens.html");
+            "</ListaTokens>\n";
+            File.WriteAllText("Reporte de Tokens.xml", Contenido_html);
+            System.Diagnostics.Process.Start("Reporte de Tokens.xml");
 
 
         }
