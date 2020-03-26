@@ -16,3 +16,14 @@ C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_20180122
 C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.csproj.GenerateResource.cache
 C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.exe
 C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.pdb
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.licensekey.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.pdfa.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.xfaworker.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.xtra.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\Jint.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\log4net.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\Antlr3.Runtime.dll
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\bin\Debug\itextsharp.xml
+C:\Users\l4kz4\Documents\GitHub\-OCL-Proyecto1_201801229\[OCL]Proyecto1_201801229\[OCL]Proyecto1_201801229\obj\Debug\[OCL]Proyecto1_201801229.csproj.CopyComplete

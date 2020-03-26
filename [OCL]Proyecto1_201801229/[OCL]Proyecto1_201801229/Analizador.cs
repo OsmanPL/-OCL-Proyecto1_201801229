@@ -63,7 +63,7 @@ namespace _OCL_Proyecto1_201801229
             listaErrores.Add(error);
         }
 
-        public void analizadorLexico(String codigo)
+        public void analizadorLexico(String codigo, ListaCircularGaleria lg)
         {
             int estado = 0;
             int columna = 0;
@@ -325,7 +325,7 @@ namespace _OCL_Proyecto1_201801229
             if (listaErrores.Count==0)
             {
                 Generar_Thompson gt = new Generar_Thompson();
-                gt.separarNodos(listaExpresiones);
+                gt.separarNodos(listaExpresiones, lg);
             }
             else
             {
@@ -451,6 +451,14 @@ namespace _OCL_Proyecto1_201801229
         public List<Errores> getListaErroes()
         {
             return listaErrores;
+        }
+        public List<Lexema> getListaLexemas()
+        {
+            return listaLexemas;
+        }
+        public List<Conjunto> getListaConjunto()
+        {
+            return listaConjuntos;
         }
 
     }

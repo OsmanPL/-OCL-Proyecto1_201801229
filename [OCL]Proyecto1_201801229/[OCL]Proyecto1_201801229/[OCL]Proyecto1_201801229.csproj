@@ -33,6 +33,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.licensekey">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.licensekey.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xfaworker">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.xfaworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Jint">
+      <HintPath>..\..\..\..\Compi1\-LFP-Proyecto1_201801229\[LFP]Proyecto1_201801229\[LFP]Proyecto1_201801229\bin\Debug\Jint.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Analizador.cs" />
     <Compile Include="Conjunto.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="Errores.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Expresion.cs" />
@@ -57,12 +79,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Galeria.cs" />
     <Compile Include="Generar_Thompson.cs" />
     <Compile Include="Graficador.cs" />
     <Compile Include="Lexema.cs" />
+    <Compile Include="ListaCircularGaleria.cs" />
     <Compile Include="MetodoSubconjuntos.cs" />
     <Compile Include="NodoExpresion.cs" />
     <Compile Include="Pestaña.cs" />
+    <Compile Include="Probar_Lexemas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token.cs" />
